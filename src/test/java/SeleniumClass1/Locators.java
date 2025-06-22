@@ -9,41 +9,29 @@ import java.util.List;
 
 public class Locators {
     public static void main(String[] args) throws InterruptedException {
-        // go to the website
-        WebDriver driver = new ChromeDriver();
+//        goto the website
+        WebDriver driver =new ChromeDriver();
         driver.get("https://syntaxprojects.com/locator-homework.php");
         driver.manage().window().maximize();
 
-        // go to the text box and enter first name
-
+//        goto the text box and enter first name
         WebElement firstName = driver.findElement(By.id("fullName"));
-        firstName.sendKeys("Nhu Nguyen");
+        firstName.sendKeys("groootistan");
 
-        //enter the invalid email address and confirm that the error is displayed
+//        Enter the invalid email address and confirm that the error is displayed
         WebElement emailAddress = driver.findElement(By.name("yourEmail"));
-        emailAddress.sendKeys("nh116677@gmail.com");
+        emailAddress.sendKeys("grrotisangmail.com");
 
         Thread.sleep(5000);
-
-        //Correct email address
-        emailAddress.clear();//clean the previous email address
-
-        emailAddress.sendKeys("nh116677@gmail.com");
-
-        //click on the text "click here"
-        //WebElement clickHereButton = driver.findElement(By.linkText("Click Here."));
-        //clickHereButton.click();
-
-        WebElement clickHereButton = driver.findElement(By.partialLinkText("Click"));
-        clickHereButton.click();
-
-        //get all the links
-        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+//        correct email address and verufy that error vanishes
+        emailAddress.clear();  //clean the previous email address
+        emailAddress.sendKeys("grrotisan@gmail.com");
 
 
-
-
-
+        Thread.sleep(2000);
+//        click on the text  "click here"
+        WebElement clickHereBtn = driver.findElement(By.linkText("Click Here."));
+        clickHereBtn.click();
 
     }
 }

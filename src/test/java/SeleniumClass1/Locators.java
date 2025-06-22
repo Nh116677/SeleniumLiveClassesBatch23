@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class Locators {
     public static void main(String[] args) throws InterruptedException {
         // go to the website
@@ -27,6 +29,18 @@ public class Locators {
         emailAddress.clear();//clean the previous email address
 
         emailAddress.sendKeys("nh116677@gmail.com");
+
+        //click on the text "click here"
+        //WebElement clickHereButton = driver.findElement(By.linkText("Click Here."));
+        //clickHereButton.click();
+
+        WebElement clickHereButton = driver.findElement(By.partialLinkText("Click"));
+        clickHereButton.click();
+
+        //get all the links
+        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+
+
 
 
 

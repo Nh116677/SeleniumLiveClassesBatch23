@@ -24,15 +24,19 @@ public class explicitWait {
         btn.click();
         System.out.println( btn.isEnabled());
 
+
         driver.findElement(By.id("checkbox_button")).click();
+
         WebElement checkBox = driver.findElement(By.id("checkbox"));
         wait.until(ExpectedConditions.elementToBeSelected(checkBox));
-
         System.out.println(checkBox.isSelected());
 
+
         driver.findElement(By.id("changetext_button")).click();
+
         wait.until(ExpectedConditions.textToBe(By.xpath("//h2[@id='headingtext']"),"Ssyntaxtechs"));
-        String text = driver.findElement(By.xpath("//h2[@id='headingtext'")).getText();
+
+        String text = driver.findElement(By.xpath("//h2[@id='headingtext']")).getText();
         System.out.println(text);
 
     }

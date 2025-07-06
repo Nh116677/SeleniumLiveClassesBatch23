@@ -27,21 +27,27 @@ public class tables {
 
         //find the column id
         List<WebElement> allIds = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
-
-        int count=1;
-        for(WebElement id:allIds){
-            String idValue = id.getText();
-            if(idValue.equals("90906036")){
+        boolean notFound= true;
+        while(notFound) {
+            int count = 1;
+            for (WebElement id : allIds) {
+                String idValue = id.getText();
+                if (idValue.equals("90906036")) {
 //  print the row number of this id in the table at this particular moment
-                System.out.println("the row value is "+count);
+                    System.out.println("the row value is " + count);
 //                find the checkbox and click on it
 //                over here we are creating a dynamic xpath by integrating count in place of row number as row numbers change and count takes care of that
-                WebElement checkBox = driver.findElement(By.xpath("//table/tbody/tr[" + count + "]/td[1]"));
-                checkBox.click();
-            }
-            count=count+1;
+                    WebElement checkBox = driver.findElement(By.xpath("//table/tbody/tr[" + count + "]/td[1]"));
+                    checkBox.click();
+                    notFound=false;
+                }
+                count = count + 1;
 
+            }
         }
+        //click on the next page
+        WebElement nxtbtn = driver.findElement(By.xpath("//a[text() = 'Next']"));
+        nxtbtn.click();
 
 
 
